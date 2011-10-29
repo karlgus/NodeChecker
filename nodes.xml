@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1">
+
+<nodes>
+    <node>
+        <ip>127.0.0.1</ip>
+        <hostname>localhost</hostname>
+    </node>
+    <node>
+        <ip>8.8.8.8</ip>
+        <hostname>google</hotname>
+    </node>
+</nodes>
