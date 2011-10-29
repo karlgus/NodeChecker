@@ -1,15 +1,8 @@
-/*#include <QtGui/QApplication>
-#include "qmlapplicationviewer.h"
+#include <iostream>
 
-int main(int argc, char *argv[])
+int main()
 {
-    QApplication app(argc, argv);
 
-    QmlApplicationViewer viewer;
-    viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
-    viewer.setMainQmlFile(QLatin1String("qml/NodeChecker/main.qml"));
-    viewer.showExpanded();
-
-    return app.exec();
+    cout << "hej" << endl;
+    return 0;
 }
-*/
