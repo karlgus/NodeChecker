@@ -1,4 +1,4 @@
-#include <QtGui/QApplication>
+/*#include <QtGui/QApplication>
 #include "qmlapplicationviewer.h"
 
 int main(int argc, char *argv[])
@@ -12,3 +12,4 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+*/
