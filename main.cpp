@@ -5,14 +5,14 @@
 
 using namespace std;
 
-class nodes
+class Node
 {
 public:
-    vector <string> ip;
-    vector <string> hostname;
+    string ip;
+    string hostname;
 };
 
-class nodes_result : nodes
+class Node_result : Node
 {
 public:
     long int date;
@@ -30,6 +30,10 @@ int main()
     pugi::xml_document doc;
     pugi::xml_parse_result result = doc.load_file("nodes.xml");
 
+
+    vector <Node> nodes;
+
+
     if (result)
     {
 
@@ -37,8 +41,13 @@ int main()
 
         for(pugi::xpath_node_set::const_iterator it = tools.begin(); it != tools.end(); ++it)
         {
+            Node tempnodes;
             pugi::xpath_node node = *it;
-
+            tempnodes.ip = node.node().child_value("ip");
+            nodes.push_back(tempnodes);
+            //Nodes.ip = node.node().child_value("ip");
+            //Node.push_back(Nodes);
+            //nodes.ip = node.node().child_value("ip");
             //test.text = node.node().child_value("ip");
 
             //test.correctanswer = node.node().child("hostname").attribute("correctanswer").as_int();
