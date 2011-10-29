@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1">
+<nodes>
+    <node>
+        <ip>127.0.0.1</ip>
+        <hostname>localhost</hostname>
+        <date>2011-10-28</date>
+        <time>15:43</time>
+        <ping_max></ping_max>
+        <ping_avg></ping_avg>
+        <ping_min></ping_min>
+    </node>
+</nodes>
