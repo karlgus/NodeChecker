@@ -1,0 +1,3 @@
+2011.10.28  09:43 - 09:51             // Har påbörjat skapandet av projektet samt fixat att pugixml fungerar att importera.
+2011.10.28  09:51 - 10:01             // Har påbörjat designen av xml-filen nodes.xml.
+2011.10.28  10:11 - 10:37             // Fortsätter med xml-filen nodes.xml... försökt få git att fungera.
