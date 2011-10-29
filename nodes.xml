@@ -9,4 +9,8 @@
         <ip>8.8.8.8</ip>
         <hostname>google</hotname>
     </node>
+    <node>
+        <ip>8.8.8.8</ip>
+        <hostname>dn.se</hotname>
+    </node>
 </nodes>
