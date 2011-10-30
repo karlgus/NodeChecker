@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <iostream>
 #include <pugixml.hpp>
-#include <string>
+#include <cstring>
 #include <vector>
 
 
@@ -32,7 +32,7 @@ string exec(char* cmd) {
     FILE* pipe = popen(cmd, "r");   //popen = process open
     if (!pipe) return "ERROR";
     char buffer[128];
-    std::string result = "";
+    string result = "";
     while(!feof(pipe)) {
         if(fgets(buffer, 128, pipe) != NULL)
                 result += buffer;
@@ -70,9 +70,11 @@ int main()
 
     vector <Node_result> nodes_result;
 
-    string host = nodes[0].ip;
-    string pinghost = "ping -c 3 8.8.8.8";
-    cout << exec(pinghost);
+    string host= nodes[0].ip;
+    string ping = "ping -c ";
+    ping.append(host);
+    cout << exec(ping);
+
 
     return 0;
 }
