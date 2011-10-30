@@ -7,10 +7,10 @@
     </node>
     <node>
         <ip>8.8.8.8</ip>
-        <hostname>google</hotname>
+        <hostname>google</hostname>
     </node>
     <node>
         <ip>8.8.8.8</ip>
-        <hostname>dn.se</hotname>
+        <hostname>dn.se</hostname>
     </node>
 </nodes>
