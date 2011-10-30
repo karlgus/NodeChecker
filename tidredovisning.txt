@@ -3,3 +3,6 @@
 2011.10.28  10:11 - 10:37             // Fortsätter med xml-filen nodes.xml... försökt få git att fungera.
 2011.10.28  15:41 - 15:46             // Gör exempeldesign på nodes_result.xml
 2011.10.28  16:21 - 17:57             // Har ändrat klassnamnen + försöker läsa från nodes.xml filen, försöker få ut ip från den.
+
+
+2011.10.29  09:18 - 11:05             // Har lagt till en funktion som anropar och skriver ut resultat från system kommandon, exempelvis ping
