@@ -1,7 +1,8 @@
 #include <iostream>
 #include <pugixml.hpp>
 #include <vector>
-#include <cstdlib>
+#include <stdlib.h>
+#include <cstdio>
 
 using namespace std;
 
@@ -24,14 +25,29 @@ public:
     vector <string> ping_min;
 };
 
+std::string exec(char* cmd) {
+    FILE* pipe = popen(cmd, "r");
+    if (!pipe) return "ERROR";
+    char buffer[128];
+    std::string result = "";
+    while(!feof(pipe)) {
+        if(fgets(buffer, 128, pipe) != NULL)
+                result += buffer;
+    }
+    pclose(pipe);
+    return result;
+}
+
 
 int main()
 {
     pugi::xml_document doc;
     pugi::xml_parse_result result = doc.load_file("/home/karl/.config/NodeChecker/nodes.xml");
 
-
     vector <Node> nodes;
+
+    string a = exec("ping -c 3 8.8.8.8");
+    cout << a;
 
     if (result)
     {
@@ -46,7 +62,6 @@ int main()
             tempnodes.hostname = node.node().child_value("hostname");
             nodes.push_back(tempnodes);
        }
-
    }
 
     return 0;
