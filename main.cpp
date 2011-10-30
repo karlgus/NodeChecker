@@ -44,14 +44,19 @@ string exec(char* cmd) {
 int main()
 {
     pugi::xml_document doc;
-    pugi::xml_parse_result result = doc.load_file("/home/karl/.config/NodeChecker/nodes.xml");
+    pugi::xml_parse_result result = doc.load_file("/home/karl/.config/NodeChecker/nodes_result.xml");
+    if (result)
+    {
+        doc.append_child("node").child_value("ip");
+    }
+    /*pugi::xml_parse_result result = doc.load_file("/home/karl/.config/NodeChecker/nodes.xml");
 
     vector <Node> nodes;
 
     /*string date = exec("date \"+%Y.%m.%d\"");         får ut datum i formatet 2011.10.30
     string time = exec("date \"+%H:%M:%S\"");           får ut tid i formatet 12:13:45
     cout << date;
-    cout << time;*/
+    cout << time;
 
 
     if (result)
@@ -66,14 +71,16 @@ int main()
             tempnodes.hostname = node.node().child_value("hostname");
             nodes.push_back(tempnodes);
        }
-   }
+   }*/
 
-    vector <Node_result> nodes_result;
+    /*vector <Node_result> nodes_result;
 
     string host= nodes[0].ip;
     string ping = "ping -c ";
     ping.append(host);
-    cout << exec(ping);
+    cout << exec(ping);*/
+
+
 
 
     return 0;

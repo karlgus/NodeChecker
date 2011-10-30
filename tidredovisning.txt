@@ -9,3 +9,5 @@ Maximal tidåtgång 22h       = 22*60 = 1320 min
 
 2011.10.29  09:18 - 11:05   =   107 min        // Har lagt till en funktion som anropar och skriver ut resultat från system kommandon, exempelvis ping
 2011.10.29  15:20 - 15:50   =    30 min        // Försökt få det att fungera med exec att ping med variabel men det vill ej fungera kan inte konvertera från string till char.
+2011.10.29  16:40 -         =                  // Försökt kunna skriva till filen nodes_result.xml
+

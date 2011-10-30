@@ -26,7 +26,8 @@ symbian:TARGET.CAPABILITY += NetworkServices
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += \
     main_org.cpp \
-    main.cpp
+    main.cpp \
+    pugixml.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -36,3 +37,7 @@ OTHER_FILES += \
     nodes.xml \
     tidredovisning.txt \
     nodes_result.xml
+
+HEADERS += \
+    pugixml.hpp \
+    pugiconfig.hpp
