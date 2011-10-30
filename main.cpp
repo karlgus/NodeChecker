@@ -1,8 +1,10 @@
+#include <cstdio>
 #include <iostream>
 #include <pugixml.hpp>
+#include <string>
 #include <vector>
-#include <stdlib.h>
-#include <cstdio>
+
+
 
 using namespace std;
 
@@ -16,17 +18,18 @@ public:
 class Node_result : Node
 {
 public:
-    long int date;
-    long int time;
-    vector <string> ip;
-    vector <string> hostname;
-    vector <string> ping_max;
-    vector <string> ping_avg;
-    vector <string> ping_min;
+    string date;
+    string time;
+    string ip;
+    string hostname;
+    string ping_max;
+    string ping_avg;
+    string ping_min;
 };
 
-std::string exec(char* cmd) {
-    FILE* pipe = popen(cmd, "r");
+
+string exec(char* cmd) {
+    FILE* pipe = popen(cmd, "r");   //popen = process open
     if (!pipe) return "ERROR";
     char buffer[128];
     std::string result = "";
@@ -38,7 +41,6 @@ std::string exec(char* cmd) {
     return result;
 }
 
-
 int main()
 {
     pugi::xml_document doc;
@@ -46,12 +48,14 @@ int main()
 
     vector <Node> nodes;
 
-    string a = exec("ping -c 3 8.8.8.8");
-    cout << a;
+    /*string date = exec("date \"+%Y.%m.%d\"");         får ut datum i formatet 2011.10.30
+    string time = exec("date \"+%H:%M:%S\"");           får ut tid i formatet 12:13:45
+    cout << date;
+    cout << time;*/
+
 
     if (result)
     {
-       // pugi::xpath_node_set tools = doc.select_nodes("/nodes/node");
         pugi::xpath_node_set tools = doc.select_nodes("/nodes/node");
 
         for(pugi::xpath_node_set::const_iterator it = tools.begin(); it != tools.end(); ++it)
@@ -63,6 +67,12 @@ int main()
             nodes.push_back(tempnodes);
        }
    }
+
+    vector <Node_result> nodes_result;
+
+    string host = nodes[0].ip;
+    string pinghost = "ping -c 3 8.8.8.8";
+    cout << exec(pinghost);
 
     return 0;
 }
