@@ -20,8 +20,6 @@ class Node_result : Node
 public:
     string date;
     string time;
-    string ip;
-    string hostname;
     string ping_max;
     string ping_avg;
     string ping_min;
