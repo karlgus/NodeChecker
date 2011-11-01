@@ -23,7 +23,15 @@ public:
     string ping_min;
 };
 
-string exec(string cmd) {
+class PingStatus
+{
+public:
+    string min;
+    string avg;
+    string max;
+};
+string exec(string cmd)
+{
     char char_cmd[cmd.length()+1];
     strcpy(char_cmd, cmd.c_str());
 
@@ -31,13 +39,49 @@ string exec(string cmd) {
     if (!pipe) return "ERROR";
         char buffer[128];
         string result = "";
-    while(!feof(pipe)) {
+    while(!feof(pipe))
+    {
         if(fgets(buffer, 128, pipe) != NULL)
             result += buffer;
+    }
+    pclose(pipe);
+    return result;
 }
-pclose(pipe);
-return result;
+
+
+PingStatus ping(string ipaddress)
+{
+string pingString = "ping -c 3 ";
+pingString.append(ipaddress);
+
+PingStatus tempPingStatus;
+string pingData = exec(pingString);
+
+//Använd sed/awk grejerna här..
+string awkmax = "| sed '$!d' | awk '{ print $4}' | awk -F '/' '{print $3}'";
+string awkmin = "| sed '$!d' | awk '{ print $4}' | awk -F '/' '{print $1}'";
+string awkavg = "| sed '$!d' | awk '{ print $4}' | awk -F '/' '{print $2}'";
+
+string maxCommand;// = "echo ";
+maxCommand.append(pingData);
+maxCommand.append(awkmax);
+cout << maxCommand << endl;
+tempPingStatus.max = exec(maxCommand);
+string minCommand;// = "echo ";
+minCommand.append(pingData);
+minCommand.append(awkmin);
+//tempPingStatus.min = exec(minCommand);
+string avgCommand;// = "echo ";
+avgCommand.append(pingData);
+avgCommand.append(awkavg);
+tempPingStatus.avg;
+return tempPingStatus;
 }
+
+
+
+
+
 
     /*FILE* pipe = popen(cmd, "r");   //popen = process open
     if (!pipe) return "ERROR";
@@ -50,6 +94,8 @@ return result;
     pclose(pipe);
     return result;
 }*/
+
+
 
 int main()
 {
@@ -87,11 +133,40 @@ int main()
 
     vector <Node_result> nodes_result;
 
-    string host= nodes[0].ip;
-    string ping = "ping -c 3 ";
-    ping.append(host);
-    cout << exec(ping);
+
+
+
+
+    /*for(int i = 0; i < nodes.size();i++)
+    {
+        Node_result tempresult;
+
+        string host= nodes[i].ip;
+        string ping = "ping -c 3 ";
+        ping.append(host);
+        ping.append(awkmax);
+        string pingresult = exec(ping);
+        tempresult.ping_max = pingresult;
+        nodes_result.push_back(tempresult);
+        cout << nodes_result[i].ping_max;
+
+    }*/
+
+    for(int i = 0; i< nodes.size();i++)
+    {
+        Node_result tempresult;
+        tempresult.ping_max = ping(nodes[i].ip).max;
+        tempresult.ping_min = ping(nodes[i].ip).min;
+        tempresult.ping_avg = ping(nodes[i].ip).avg;
+        nodes_result.push_back(tempresult);
+
+
+    }
+    for(int i = 0;i < nodes_result.size(); i++)
+    {
+        //cout << nodes_result[i].ping_min;
+    }
 
     return 0;
-}
+    }
 }
