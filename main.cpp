@@ -26,8 +26,25 @@ public:
 };
 
 
-string exec(char* cmd) {
-    FILE* pipe = popen(cmd, "r");   //popen = process open
+string exec(string cmd) {
+    char char_cmd[cmd.length()+1];
+    strcpy(char_cmd, cmd.c_str());
+
+    FILE* pipe = popen(char_cmd, "r"); //popen = process open
+    if (!pipe) return "ERROR";
+        char buffer[128];
+        string result = "";
+    while(!feof(pipe)) {
+        if(fgets(buffer, 128, pipe) != NULL)
+            result += buffer;
+}
+pclose(pipe);
+return result;
+}
+
+
+
+    /*FILE* pipe = popen(cmd, "r");   //popen = process open
     if (!pipe) return "ERROR";
     char buffer[128];
     string result = "";
@@ -37,7 +54,7 @@ string exec(char* cmd) {
     }
     pclose(pipe);
     return result;
-}
+}*/
 
 int main()
 {
