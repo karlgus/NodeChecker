@@ -1,15 +1,18 @@
-Maximal tidåtgång 22h       = 22*60 = 1320 min
-2011.10.28  09:43 - 09:51   =   8  min        // Har påbörjat skapandet av projektet samt fixat att pugixml fungerar att importera.
-2011.10.28  09:51 - 10:01   =   10 min        // Har påbörjat designen av xml-filen nodes.xml.
-2011.10.28  10:11 - 10:37   =   26 min        // Fortsätter med xml-filen nodes.xml... försökt få git att fungera.
-2011.10.28  15:41 - 15:46   =   5  min        // Gör exempeldesign på nodes_result.xml
-2011.10.28  16:21 - 17:57   =   96 min        // Har ändrat klassnamnen + försöker läsa från nodes.xml filen, försöker få ut ip från den.
+Maximal tidåtgång 22h       = 22*60     =   1320 min
+2011.10.28  09:43 - 09:51   =   8  min          // Har påbörjat skapandet av projektet samt fixat att pugixml fungerar att importera.
+2011.10.28  09:51 - 10:01   =   10 min          // Har påbörjat designen av xml-filen nodes.xml.
+2011.10.28  10:11 - 10:37   =   26 min          // Fortsätter med xml-filen nodes.xml... försökt få git att fungera.
+2011.10.28  15:41 - 15:46   =   5  min          // Gör exempeldesign på nodes_result.xml
+2011.10.28  16:21 - 17:57   =   96 min          // Har ändrat klassnamnen + försöker läsa från nodes.xml filen, försöker få ut ip från den.
 --------------------------------------
-                                252 min
+                                252 min =   1068
 
 2011.10.29  09:18 - 11:05   =   107 min        // Har lagt till en funktion som anropar och skriver ut resultat från system kommandon, exempelvis ping
 2011.10.29  15:20 - 15:50   =    30 min        // Försökt få det att fungera med exec att ping med variabel men det vill ej fungera kan inte konvertera från string till char.
 2011.10.29  16:40 - 17:00   =                  // Försökt kunna skriva till filen nodes_result.xml
 
-2011.11.01  20:05 -         =
+2011.11.01  20:05 - 22:28   =   143            // Har jobbat med att få ut värderna max, avg och min på ett bra sätt
+--------------------------------------
+                                180 min =   788
 
+2011.11.02  19:58 - 20:32   =   34 min

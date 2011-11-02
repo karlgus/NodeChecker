@@ -4,6 +4,7 @@
 #include <cstring>
 #include <vector>
 
+
 using namespace std;
 
 class Node
@@ -30,6 +31,8 @@ public:
     string avg;
     string max;
 };
+
+
 string exec(string cmd)
 {
     char char_cmd[cmd.length()+1];
@@ -57,16 +60,29 @@ PingStatus ping(string ipaddress)
     PingStatus tempPingStatus;
     string pingData = exec(pingString);
 
-    //Använd sed/awk grejerna här..
     string awkmax = "| sed '$!d' | awk '{ print $4}' | awk -F '/' '{print $3}'";
     string awkmin = "| sed '$!d' | awk '{ print $4}' | awk -F '/' '{print $1}'";
     string awkavg = "| sed '$!d' | awk '{ print $4}' | awk -F '/' '{print $2}'";
 
-    string maxCommand = "echo ";
-    maxCommand.append(pingData);
+
+    string maxCommand = pingData;
     maxCommand.append(awkmax);
-    cout << maxCommand << endl;
+
     //tempPingStatus.max = exec(maxCommand);
+
+    string minCommand = pingData;
+    minCommand.append(awkmin);
+    //tempPingStatus.min = exec(minCommand);
+
+    string avgCommand = pingData;
+    avgCommand.append(awkavg);
+    //tempPingStatus.avg = exec(avgCommand);
+
+    /*string maxCommand = "echo ";
+    maxCommand.append(pingData);
+    maxCommand.append(awkmax);*/
+    /*cout << maxCommand << endl;
+    tempPingStatus.max = exec(maxCommand);
     string minCommand = "echo ";
     minCommand.append(pingData);
     minCommand.append(awkmin);
@@ -74,13 +90,9 @@ PingStatus ping(string ipaddress)
     string avgCommand = "'echo '";
     avgCommand.append(pingData);
     avgCommand.append(awkavg);
-    tempPingStatus.avg;
+    tempPingStatus.avg;*/
     return tempPingStatus;
 }
-
-
-
-
 
 
     /*FILE* pipe = popen(cmd, "r");   //popen = process open
@@ -146,11 +158,11 @@ int main()
         string ping = "ping -c 3 ";
         ping.append(host);
         ping.append(awkmax);
-        cout << ping;
+        //cout << ping;
         string pingresult = exec(ping);
         tempresult.ping_max = pingresult;
         nodes_result.push_back(tempresult);
-        cout << nodes_result[i].ping_max;
+        //cout << nodes_result[i].ping_max;
 
     }
 
@@ -168,7 +180,9 @@ int main()
     }
     for(int i = 0;i < nodes_result.size(); i++)
     {
-        cout << nodes_result[i].ping_min;
+        cout << nodes_result[i].ping_avg;
+        //cout << "ping avg för host: " << " " << nodes_result[i].ping_avg;
+        //cout << "ping min för host: " << " " << nodes_result[i].ping_min;
     }
 
     return 0;
