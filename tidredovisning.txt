@@ -16,3 +16,6 @@ Maximal tidåtgång 22h       = 22*60     =   1320 min
                                 180 min =   788
 
 2011.11.02  19:58 - 20:32   =   34 min
+
+2011.11.05  22:35 - 22:35   =   60 min          // Försökt lära mig hur biblioteket boost fungerar
+2011.11.06  09:50 - 10:07   =   17 min          // Försökt lära mig hur biblioteket boost fungerar

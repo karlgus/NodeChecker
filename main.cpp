@@ -3,7 +3,7 @@
 #include <pugixml.hpp>
 #include <cstring>
 #include <vector>
-
+#include <boost/regex.hpp>
 
 using namespace std;
 
@@ -52,7 +52,7 @@ string exec(string cmd)
 }
 
 
-PingStatus ping(string ipaddress)
+/*PingStatus ping(string ipaddress)
 {
     string pingString = "ping -c 3 ";
     pingString.append(ipaddress);
@@ -91,7 +91,20 @@ PingStatus ping(string ipaddress)
     avgCommand.append(pingData);
     avgCommand.append(awkavg);
     tempPingStatus.avg;*/
-    return tempPingStatus;
+//    return tempPingStatus;
+//}
+
+PingStatus ping(string ipaddress)
+{
+    string pingString = "ping -c 3 ";
+    pingString.append(ipaddress);
+
+    PingStatus tempPingStatus;
+    string pingData = exec(pingString);
+    boost::regex_e1("min",boost::regex::extended);
+
+
+
 }
 
 
